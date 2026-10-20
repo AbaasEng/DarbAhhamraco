@@ -1,0 +1,408 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>بطاقة درب الحمراء</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@500;600;700&display=swap">
+<style>
+/* Layout: one centered mobile column. Gold gauge-ruler under the name, glowing ring around the portrait, one primary action, three quick tiles, contact list, social pills. */
+:root {
+  --ink: #060a14;
+  --navy: #0b1325;
+  --navy-2: #121d38;
+  --gold: #d4af5f;
+  --gold-hi: #f2dc9b;
+  --gold-lo: #8f7230;
+  --text: #f2ede1;
+  --mute: #9ea8bf;
+  --line: rgba(212, 175, 95, 0.24);
+  --line-soft: rgba(212, 175, 95, 0.12);
+  --font-display: "Reem Kufi", "Noto Kufi Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(40, 62, 120, 0.45), transparent 60%),
+    radial-gradient(80% 40% at 50% 110%, rgba(212, 175, 95, 0.10), transparent 70%),
+    var(--ink);
+  background-color: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  direction: rtl;
+  min-height: 100%;
+  padding-block: 28px 36px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 3px; }
+.ico { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+.card { max-width: 420px; margin-inline: auto; display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
+
+/* Company lockup */
+.lockup { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.mark { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; color: var(--gold); background: rgba(212, 175, 95, 0.06); }
+.mark svg { width: 20px; height: 20px; fill: currentColor; }
+.lockup-text { display: flex; flex-direction: column; line-height: 1.2; }
+.company { font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--gold-hi); }
+.tagline { font-size: 12px; letter-spacing: 0.14em; color: var(--mute); }
+
+/* Portrait */
+.identity { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.avatar { position: relative; width: 136px; height: 136px; border-radius: 50%; isolation: isolate; margin-block: 14px 10px; }
+.avatar::before { content: ""; position: absolute; inset: -4px; border-radius: 50%; background: conic-gradient(from 0deg, var(--gold-hi), var(--gold-lo), rgba(212, 175, 95, 0) 38%, var(--gold), var(--gold-hi)); animation: spin 9s linear infinite; }
+.avatar::after { content: ""; position: absolute; inset: -18px; border-radius: 50%; background: radial-gradient(circle, rgba(212, 175, 95, 0.38), transparent 68%); filter: blur(12px); z-index: -1; }
+.avatar-in { position: absolute; inset: 0; border-radius: 50%; border: 4px solid var(--ink); background: linear-gradient(160deg, var(--navy-2), var(--navy)); overflow: hidden; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.avatar-in img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.initials { font-family: var(--font-display); font-weight: 700; font-size: 44px; line-height: 1; background: linear-gradient(180deg, var(--gold-hi), var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.name { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.25; text-wrap: balance; }
+.role { margin: 0; color: var(--gold); font-weight: 500; font-size: 15px; letter-spacing: 0.04em; }
+.bio { margin: 0; color: var(--mute); max-width: 34ch; text-wrap: balance; }
+
+/* Gauge ruler */
+.gauge { height: 14px; margin-block: 2px; background:
+    linear-gradient(90deg, var(--gold-lo) 1px, transparent 1px) 0 100% / 40px 14px repeat-x,
+    linear-gradient(90deg, var(--gold-lo) 1px, transparent 1px) 0 100% / 8px 6px repeat-x;
+  opacity: 0.8; -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); }
+
+/* Actions */
+.actions { display: flex; flex-direction: column; gap: 12px; }
+.btn-main { min-height: 58px; border: 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; font-weight: 600; font-size: 17px; color: #1b1405; background: linear-gradient(180deg, var(--gold-hi), var(--gold) 55%, #b9923f); box-shadow: 0 10px 30px -8px rgba(212, 175, 95, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.45); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.btn-main:hover { box-shadow: 0 14px 34px -8px rgba(212, 175, 95, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.45); }
+.btn-main:active { transform: translateY(1px) scale(0.99); }
+.btn-ghost { min-height: 52px; border-radius: 16px; border: 1px solid var(--line); background: rgba(212, 175, 95, 0.05); color: var(--gold-hi); display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 20px; font-weight: 500; transition: background 0.15s ease, border-color 0.15s ease; }
+.btn-ghost:hover { background: rgba(212, 175, 95, 0.12); border-color: rgba(212, 175, 95, 0.45); }
+
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tile { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 16px 6px 14px; border-radius: 18px; border: 1px solid var(--line-soft); background: linear-gradient(180deg, rgba(18, 29, 56, 0.8), rgba(11, 19, 37, 0.8)); transition: border-color 0.15s ease, transform 0.15s ease; }
+.tile:hover { border-color: rgba(212, 175, 95, 0.5); }
+.tile:active { transform: translateY(1px); }
+.tile .badge { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; color: var(--gold-hi); border: 1px solid var(--line); background: rgba(212, 175, 95, 0.07); }
+.tile b { font-weight: 600; font-size: 14px; line-height: 1.3; }
+.tile small { color: var(--mute); font-size: 12px; line-height: 1.4; }
+
+/* Contact list */
+.list { display: flex; flex-direction: column; border-block: 1px solid var(--line-soft); }
+.row { display: flex; align-items: center; gap: 12px; padding: 12px 0; }
+.row + .row { border-top: 1px solid var(--line-soft); }
+.row .ico { color: var(--gold); }
+.row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.row-text small { color: var(--mute); font-size: 12px; }
+.row-text span { direction: ltr; unicode-bidi: plaintext; text-align: right; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; user-select: all; }
+.copy { width: 44px; height: 44px; flex: none; border-radius: 12px; border: 1px solid var(--line-soft); background: transparent; display: grid; place-items: center; color: var(--mute); transition: color 0.15s ease, border-color 0.15s ease; }
+.copy:hover { color: var(--gold-hi); border-color: var(--line); }
+
+/* Social */
+.social { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.pill { min-height: 44px; display: inline-flex; align-items: center; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); font-weight: 500; font-size: 14px; transition: color 0.15s ease, background 0.15s ease; }
+.pill:hover { color: var(--gold-hi); background: rgba(212, 175, 95, 0.08); }
+
+.foot { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--mute); font-size: 13px; }
+.foot .ico { width: 16px; height: 16px; color: var(--gold); }
+
+/* Modal */
+.overlay { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center; padding-block: max(20px, env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); background: rgba(3, 6, 12, 0.76); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.panel { position: relative; width: 100%; max-width: 360px; max-height: 100%; overflow-y: auto; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(180deg, var(--navy-2), var(--navy)); padding: 26px 22px 22px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8), 0 0 60px -20px rgba(212, 175, 95, 0.35); }
+.panel h2 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--gold-hi); }
+.panel p { margin: 0; color: var(--mute); font-size: 14px; text-wrap: balance; }
+.close { position: absolute; top: 10px; inset-inline-start: 10px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: transparent; color: var(--mute); display: grid; place-items: center; }
+.close:hover { color: var(--text); }
+.qr { width: 236px; max-width: 100%; aspect-ratio: 1; border-radius: 16px; padding: 12px; background: #ffffff; box-shadow: 0 0 0 2px var(--gold), 0 0 40px rgba(212, 175, 95, 0.35); display: grid; place-items: center; color: #0a0f1c; font-size: 13px; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.url { direction: ltr; unicode-bidi: plaintext; font-size: 12px; color: var(--mute); overflow-wrap: anywhere; max-width: 100%; user-select: all; }
+.panel .list { width: 100%; text-align: start; }
+.panel .btn-ghost, .panel .btn-main { width: 100%; }
+
+.phone-big { width: 100%; direction: ltr; unicode-bidi: plaintext; text-align: center; font-family: var(--font-display); font-weight: 600; font-size: 30px; letter-spacing: 0.04em; font-variant-numeric: tabular-nums; padding: 16px 0; border-block: 1px solid var(--line-soft); user-select: all; }
+
+.toast { position: fixed; z-index: 60; inset-inline: 0; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); margin-inline: auto; width: max-content; max-width: calc(100% - 32px); padding: 12px 20px; border-radius: 999px; background: var(--navy-2); border: 1px solid var(--line); color: var(--gold-hi); font-size: 14px; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar::before { animation: none; }
+  .btn-main, .tile, .btn-ghost, .copy, .pill { transition: none; }
+}
+</style>
+
+<main class="card" lang="ar" dir="rtl">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8.5 9.5c.4 2.2 2.8 4.6 5 5l1.3-1.3-1.8-1-.9.7c-.8-.3-1.6-1.1-1.9-1.9l.7-.9-1-1.8z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="lockup">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5c3.2 4.2 6 7.4 6 11a6 6 0 0 1-12 0c0-3.6 2.8-6.8 6-11z"/></svg></span>
+    <div class="lockup-text">
+      <span class="company" data-bind="company"></span>
+      <span class="tagline" data-bind="tagline"></span>
+    </div>
+  </header>
+
+  <section class="identity">
+    <div class="avatar">
+      <div class="avatar-in" id="avatar"></div>
+    </div>
+    <h1 class="name" data-bind="name"></h1>
+    <p class="role" data-bind="role"></p>
+    <p class="bio" data-bind="bio"></p>
+  </section>
+
+  <div class="gauge" aria-hidden="true"></div>
+
+  <section class="actions" aria-label="الإجراءات السريعة">
+    <button class="btn-main" id="save" type="button">➕ احفظ رقمي في هاتفك</button>
+    <button class="btn-ghost" id="qr-open" type="button"><svg class="ico"><use href="#i-qr"/></svg>عرض رمز QR للكارت</button>
+    <div class="tiles">
+      <a class="tile" id="call" href="#"><span class="badge"><svg class="ico"><use href="#i-phone"/></svg></span><b>اتصال مباشر</b><small>اضغط للاتصال</small></a>
+      <a class="tile" id="wa" href="#" target="_blank" rel="noopener noreferrer"><span class="badge"><svg class="ico"><use href="#i-chat"/></svg></span><b>واتساب</b><small>محادثة فورية</small></a>
+      <a class="tile" id="map" href="#" target="_blank" rel="noopener noreferrer"><span class="badge"><svg class="ico"><use href="#i-pin"/></svg></span><b>الموقع</b><small data-bind="city"></small></a>
+    </div>
+  </section>
+
+  <section class="list" aria-label="بيانات التواصل">
+    <div class="row">
+      <svg class="ico"><use href="#i-phone"/></svg>
+      <div class="row-text"><small>الجوال</small><span data-bind="phoneDisplay"></span></div>
+      <button class="copy" type="button" data-copy="phone" aria-label="نسخ رقم الجوال"><svg class="ico"><use href="#i-copy"/></svg></button>
+    </div>
+    <div class="row">
+      <svg class="ico"><use href="#i-mail"/></svg>
+      <div class="row-text"><small>البريد الإلكتروني</small><span data-bind="email"></span></div>
+      <button class="copy" type="button" data-copy="email" aria-label="نسخ البريد الإلكتروني"><svg class="ico"><use href="#i-copy"/></svg></button>
+    </div>
+  </section>
+
+  <nav class="social" id="social" aria-label="حسابات التواصل الاجتماعي"></nav>
+
+  <footer class="foot"><svg class="ico"><use href="#i-pin"/></svg><span data-bind="city"></span></footer>
+
+  <!-- QR modal -->
+  <div class="overlay" id="qr-modal" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="qr-title">
+      <button class="close" type="button" data-close aria-label="إغلاق"><svg class="ico"><use href="#i-x"/></svg></button>
+      <h2 id="qr-title">رمز الكارت</h2>
+      <p>اطلب من العميل مسح الرمز بكاميرا هاتفه ليفتح البطاقة مباشرة.</p>
+      <div class="qr" id="qr-box"></div>
+      <div class="url" id="qr-url"></div>
+      <button class="btn-ghost" type="button" id="qr-copy"><svg class="ico"><use href="#i-copy"/></svg>نسخ رابط الكارت</button>
+    </div>
+  </div>
+
+  <!-- Phone modal -->
+  <div class="overlay" id="phone-modal" hidden>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="phone-title">
+      <button class="close" type="button" data-close aria-label="إغلاق"><svg class="ico"><use href="#i-x"/></svg></button>
+      <h2 id="phone-title">رقم الهاتف</h2>
+      <p data-bind="name"></p>
+      <div class="phone-big" data-bind="phoneDisplay"></div>
+      <button class="btn-main" type="button" id="phone-copy">نسخ الرقم</button>
+      <button class="btn-ghost" type="button" id="vcf-save">تنزيل كجهة اتصال (vCard)</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+/* ===== Edit this block with the real details ===== */
+const CONFIG = {
+  company: "درب الحمراء",
+  tagline: "للمشتقات النفطية",
+  name: "شركة درب الحمراء",
+  role: "للمشتقات النفطية ديزل - جاز",
+  bio: "شريككم الموثوق في توريد المشتقات النفطية. نلتزم بالجودة والمواعيد وبخدمة تليق بأعمالكم.",
+  phone: "+966505758032",
+  phoneDisplay: "+966 50 575 8032",
+  email: "darbalhamraco@gmail.com",
+  city: "جدة – مكة المكرمة",
+  mapsUrl: "https://maps.app.goo.gl/qWyqs55fAGMRJRxg8?g_st=ac",
+  photo: "logo.png",          /* ضع صورة كـ data:image/... أو اتركها فارغة لعرض الأحرف الأولى */
+  cardUrl: "https://claude.ai/artifact/WT6sbucdc6uj3VdjaVd9Vh",        /* رابط الكارت الذي يحمله رمز QR */
+  socials: [
+    { label: "X", url: "https://x.com/DarbAlHamra" },
+    { label: "Instagram", url: "https://www.instagram.com/" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/" },
+    { label: "Snapchat", url: "https://www.snapchat.com/" }
+  ]
+};
+/* ================================================ */
+
+const $ = (s, r = document) => r.querySelector(s);
+const FILE = "darb-alhamra-contact.vcf";
+
+/* Fill text from CONFIG */
+document.querySelectorAll("[data-bind]").forEach(el => { el.textContent = CONFIG[el.dataset.bind] || ""; });
+
+/* Portrait */
+(function () {
+  const box = $("#avatar");
+  if (CONFIG.photo) {
+    const img = document.createElement("img");
+    img.src = CONFIG.photo; img.alt = CONFIG.name;
+    box.appendChild(img);
+  } else {
+    CONFIG.name.trim().split(/\s+/).slice(0, 2).forEach(w => {
+      const s = document.createElement("span");
+      s.className = "initials"; s.textContent = w.charAt(0);
+      box.appendChild(s);
+    });
+  }
+})();
+
+/* Links */
+const digits = CONFIG.phone.replace(/[^\d]/g, "");
+$("#call").href = "tel:" + CONFIG.phone;
+$("#wa").href = "https://wa.me/" + digits + "?text=" + encodeURIComponent("السلام عليكم، أود الاستفسار عن خدماتكم.");
+$("#map").href = CONFIG.mapsUrl;
+CONFIG.socials.forEach(s => {
+  const a = document.createElement("a");
+  a.className = "pill"; a.href = s.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.textContent = s.label;
+  $("#social").appendChild(a);
+});
+
+/* Toast */
+let toastTimer;
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg; t.hidden = false;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 2600);
+}
+
+/* Copy */
+async function copyText(text, okMsg) {
+  try {
+    await navigator.clipboard.writeText(text);
+    toast(okMsg || "تم النسخ");
+    return;
+  } catch (e) { /* fall through */ }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;opacity:0;top:0";
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    toast(ok ? (okMsg || "تم النسخ") : "حدّد النص يدوياً وانسخه");
+  } catch (e) { toast("حدّد النص يدوياً وانسخه"); }
+}
+document.querySelectorAll("[data-copy]").forEach(b => {
+  b.addEventListener("click", () => copyText(CONFIG[b.dataset.copy]));
+});
+
+/* vCard */
+const esc = v => String(v).replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/,/g, "\\,").replace(/;/g, "\\;");
+function buildVcf() {
+  const parts = CONFIG.name.trim().split(/\s+/);
+  const given = parts[0], family = parts.slice(1).join(" ");
+  const lines = [
+    "BEGIN:VCARD",
+    "VERSION:3.0",
+    "N:;" + esc(CONFIG.name) + ";;;",
+    "FN:" + esc(CONFIG.name),
+    "X-ABShowAs:COMPANY",
+    "ORG:" + esc(CONFIG.company + " " + CONFIG.tagline),
+    "TITLE:" + esc(CONFIG.role),
+    "TEL;TYPE=CELL,VOICE:" + CONFIG.phone,
+    "EMAIL;TYPE=INTERNET,WORK:" + CONFIG.email,
+    "ADR;TYPE=WORK:;;;" + esc("جدة") + ";" + esc("مكة المكرمة") + ";;SA",
+    "END:VCARD"
+  ];
+  return lines.join("\r\n") + "\r\n";
+}
+function classicDownload(text) {
+  try {
+    const url = URL.createObjectURL(new Blob([text], { type: "text/vcard;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url; a.download = FILE;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  } catch (e) { /* blocked in some frames */ }
+}
+
+/* Modals */
+let lastFocus = null, openModal = null;
+function show(modal) {
+  lastFocus = document.activeElement;
+  modal.hidden = false; openModal = modal;
+  const c = $("[data-close]", modal); if (c) c.focus();
+}
+function hide() {
+  if (!openModal) return;
+  openModal.hidden = true; openModal = null;
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+document.querySelectorAll(".overlay").forEach(o => {
+  o.addEventListener("click", e => { if (e.target === o || e.target.closest("[data-close]")) hide(); });
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+
+/* Phone number panel */
+$("#save").addEventListener("click", () => show($("#phone-modal")));
+
+/* Direct call: tel: link opens the dialer with the number. If the page stays in front (dialer did not open), show the number instead. */
+$("#call").addEventListener("click", () => {
+  let left = false;
+  const mark = () => { left = true; };
+  window.addEventListener("blur", mark, { once: true });
+  document.addEventListener("visibilitychange", mark, { once: true });
+  window.addEventListener("pagehide", mark, { once: true });
+  setTimeout(() => {
+    window.removeEventListener("blur", mark);
+    document.removeEventListener("visibilitychange", mark);
+    window.removeEventListener("pagehide", mark);
+    if (!left && !openModal) show($("#phone-modal"));
+  }, 1500);
+});
+$("#phone-copy").addEventListener("click", () => copyText(CONFIG.phone, "تم نسخ الرقم"));
+$("#vcf-save").addEventListener("click", async () => {
+  const vcf = buildVcf();
+  let dl = null;
+  try { dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null; } catch (e) { dl = null; }
+  if (dl) {
+    try {
+      await dl.save({ filename: FILE, data: vcf });
+      toast("تم الحفظ. افتح الملف لإضافته إلى جهات الاتصال");
+      return;
+    } catch (err) {
+      if (err && err.code === "declined") return;
+    }
+  }
+  classicDownload(vcf);
+  toast("إن لم يبدأ التنزيل، انسخ الرقم وأضفه يدوياً");
+});
+
+/* QR */
+function cardUrl() { return CONFIG.cardUrl || location.href; }
+function renderQr() {
+  const url = cardUrl();
+  $("#qr-url").textContent = url;
+  const box = $("#qr-box");
+  if (typeof qrcode !== "function") { box.textContent = "تعذّر تحميل رمز QR. استخدم الرابط أدناه."; return; }
+  const qr = qrcode(0, "M");
+  qr.addData(url); qr.make();
+  const n = qr.getModuleCount(), q = 4, size = n + q * 2;
+  let d = "";
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) d += "M" + (c + q) + " " + (r + q) + "h1v1h-1z";
+  box.innerHTML = '<svg viewBox="0 0 ' + size + " " + size + '" shape-rendering="crispEdges" role="img" aria-label="رمز QR لرابط الكارت"><rect width="' + size + '" height="' + size + '" fill="#ffffff"/><path d="' + d + '" fill="#0a0f1c"/></svg>';
+}
+$("#qr-open").addEventListener("click", () => { renderQr(); show($("#qr-modal")); });
+$("#qr-copy").addEventListener("click", () => copyText(cardUrl(), "تم نسخ رابط الكارت"));
+</script>
+
+</body></html>
